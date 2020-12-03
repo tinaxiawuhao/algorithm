@@ -7,13 +7,13 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {12, 32, 22, 7, 48, 3, 5, 6, 8};
-        quickSort(arr, 0, arr.length-1);
+        int[] arr = {12, 32, 22, 7, 48, 3, 35, 6, 8, 42};
+        quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
     private static void quickSort(int[] arr, int left, int right) {
-        if(left>right){
+        if (left > right) {
             return;
         }
         // base中存放基准数
@@ -46,4 +46,5 @@ public class QuickSort {
         quickSort(arr, left, i - 1);
         quickSort(arr, i + 1, right);
     }
+
 }
