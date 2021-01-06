@@ -19,15 +19,24 @@ public class HillSort {
 
     private static void shellSort(int[] arr) {
         for (int step = arr.length / 2; step > 0; step /= 2) {
+//            for (int i = step; i < arr.length; i++) {
+//                int temp = arr[i];
+//                int j;
+//                for (j = i - step; j >= 0 && arr[j] > temp; j -= step) {
+//                    arr[j + step] = arr[j];
+//                }
+//                arr[j + step] = temp;
+//            }
             for (int i = step; i < arr.length; i++) {
-                int temp = arr[i];
-                int j;
-                for (j = i - step; j >= 0 && arr[j] > temp; j -= step) {
-                    arr[j + step] = arr[j];
+                int k=i;
+                for (int j = i-step; j >=0 && arr[j] > arr[k]; j -= step,k -=step) {
+                   int temp = arr[j];
+                    arr[j]= arr[k];
+                    arr[k]=temp;
                 }
-                arr[j + step] = temp;
             }
         }
+
         System.out.println(Arrays.toString(arr));
 
     }

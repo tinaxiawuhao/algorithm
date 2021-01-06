@@ -19,17 +19,28 @@ public class DirectInsertionSort {
     }
 
     private static void insertSort(int[] arr) {
+//        for (int i = 1; i < arr.length; i++) {
+//            int temp = arr[i];
+//            int j;
+//            for (j = i - 1; j >= 0; j--) {
+//                if (temp < arr[j]) {
+//                    arr[j + 1] = arr[j];
+//                } else {
+//                    break;
+//                }
+//            }
+//            arr[j + 1] = temp;
+//        }
+        //更切合思想
         for (int i = 1; i < arr.length; i++) {
-            int temp = arr[i];
-            int j;
-            for (j = i - 1; j >= 0; j--) {
-                if (temp < arr[j]) {
-                    arr[j + 1] = arr[j];
-                } else {
-                    break;
+            int k=i;
+            for (int j = i-1; j >=0; j--,k--) {
+                if(arr[j]>arr[k]){
+                    int temp=arr[j];
+                    arr[j]=arr[k];
+                    arr[k]=temp;
                 }
             }
-            arr[j + 1] = temp;
         }
         System.out.println(Arrays.toString(arr));
     }
